@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mile on Bike | Arfat Aziz – Pakistan's Road Storyteller</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@300;400;500;700&family=Lora:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #0ea5e9;
+  --emerald: #10b981;
+  --amber: #f59e0b;
+  --crimson: #ef4444;
+  --sundown: #f97316;
+  --ink: #0c0f1a;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:#fff;font-family:'Montserrat',sans-serif;font-weight:400;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(12,15,26,.92),transparent);backdrop-filter:blur(4px);}
+.nav-logo{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:#fff;text-decoration:none;}
+.nav-logo span{color:var(--amber);}
+.nav-links{display:flex;gap:32px;}
+.nav-link{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s;}
+.nav-link:hover{color:var(--amber);}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85') center/cover no-repeat;transform:scale(1.08);animation:kenBurns 18s ease-in-out infinite alternate;}
+@keyframes kenBurns{from{transform:scale(1.08) translate(0,0);}to{transform:scale(1.0) translate(-1%,1%);}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,15,26,.9) 0%,rgba(12,15,26,.45) 55%,rgba(12,15,26,.75) 100%),linear-gradient(to top,rgba(12,15,26,1) 0%,transparent 40%);}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 75% 30%,rgba(14,165,233,.2) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 15% 75%,rgba(16,185,129,.16) 0%,transparent 55%);animation:glowPulse 6s ease-in-out infinite alternate;}
+@keyframes glowPulse{from{opacity:.6;}to{opacity:1;}}
+.hero-content{position:relative;z-index:2;max-width:850px;padding:140px 80px 100px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--emerald),var(--sky));padding:7px 20px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:28px;animation:fadeSlideDown .8s ease both;}
+.hero-title{font-family:'Oswald',sans-serif;font-size:clamp(64px,9vw,130px);font-weight:700;line-height:.92;text-transform:uppercase;margin-bottom:12px;animation:fadeSlideDown .8s .1s ease both;}
+.hero-title .t1{color:#fff;}
+.hero-title .t2{background:linear-gradient(90deg,var(--amber),var(--sundown),var(--crimson));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+.hero-sub{font-family:'Lora',serif;font-style:italic;font-size:clamp(16px,2vw,24px);color:rgba(255,255,255,.65);margin-bottom:26px;animation:fadeSlideDown .8s .2s ease both;}
+.hero-desc{font-size:16px;line-height:1.8;color:rgba(255,255,255,.72);max-width:540px;margin-bottom:44px;animation:fadeSlideDown .8s .3s ease both;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeSlideDown .8s .4s ease both;}
+.btn-fire{background:linear-gradient(135deg,var(--sundown),var(--crimson));color:#fff;padding:16px 38px;font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-radius:4px;display:inline-block;transition:all .3s;box-shadow:0 8px 32px rgba(249,115,22,.4);}
+.btn-fire:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(249,115,22,.55);}
+.btn-glass{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);color:#fff;padding:16px 38px;font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-radius:4px;display:inline-block;transition:all .3s;}
+.btn-glass:hover{border-color:var(--amber);color:var(--amber);}
+
+/* Profile floating card */
+.hero-profile{position:absolute;right:80px;bottom:90px;z-index:3;display:flex;align-items:center;gap:18px;background:rgba(12,15,26,.78);backdrop-filter:blur(16px);border:1px solid rgba(245,158,11,.45);border-radius:12px;padding:18px 26px;animation:fadeUp 1s .6s ease both;}
+.profile-photo{width:70px;height:70px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--amber);}
+.profile-name{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;}
+.profile-handle{font-size:12px;color:var(--amber);letter-spacing:.05em;margin:3px 0 10px;}
+.profile-socials{display:flex;gap:7px;}
+.psoc{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;text-decoration:none;transition:background .2s;}
+.psoc:hover{background:var(--amber);color:var(--ink);}
+
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.35);animation:fadeUp 1.5s 1s ease both;}
+.scroll-line{width:2px;height:40px;background:linear-gradient(to bottom,var(--amber),transparent);animation:scrollAnim 2s ease-in-out infinite;}
+@keyframes scrollAnim{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;background:linear-gradient(90deg,var(--emerald),var(--sky),#7c3aed,var(--sundown),var(--emerald));background-size:300% 100%;animation:gradFlow 8s ease infinite;}
+@keyframes gradFlow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 22s linear infinite;padding:14px 0;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.tick{display:inline-flex;align-items:center;gap:10px;margin:0 36px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;}
+.tick-dot{width:5px;height:5px;background:rgba(255,255,255,.5);border-radius:50%;}
+
+/* GALLERY STRIP */
+.gallery{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;height:420px;gap:4px;}
+.gcell{position:relative;overflow:hidden;cursor:pointer;}
+.gcell img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:saturate(1.25) contrast(1.05);}
+.gcell:hover img{transform:scale(1.1);}
+.gcell-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,15,26,.8) 0%,transparent 55%);display:flex;align-items:flex-end;padding:18px 20px;}
+.gcell-label{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-shadow:0 2px 8px rgba(0,0,0,.7);}
+.loc-pill{position:absolute;top:14px;left:14px;background:rgba(12,15,26,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--amber);text-transform:uppercase;}
+
+/* ABOUT */
+.about{padding:110px 80px;display:grid;grid-template-columns:1fr 1.1fr;gap:90px;align-items:center;max-width:1440px;margin:0 auto;}
+.about-visual{position:relative;}
+.about-main-img{width:100%;height:580px;object-fit:cover;object-position:top;border-radius:10px;filter:saturate(1.1);}
+.about-accent-img{position:absolute;bottom:-32px;right:-32px;width:210px;height:210px;object-fit:cover;border-radius:10px;border:5px solid var(--ink);filter:saturate(1.2);}
+.about-badge{position:absolute;top:22px;left:22px;background:rgba(12,15,26,.82);backdrop-filter:blur(12px);border:1px solid rgba(245,158,11,.5);border-radius:10px;padding:16px 22px;}
+.badge-num{font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;background:linear-gradient(135deg,var(--amber),var(--sundown));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.badge-lbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px;}
+.chip{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,rgba(16,185,129,.18),rgba(14,165,233,.18));border:1px solid rgba(16,185,129,.4);border-radius:100px;padding:7px 18px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--emerald);margin-bottom:22px;}
+.about-h{font-family:'Oswald',sans-serif;font-size:clamp(36px,3.5vw,56px);font-weight:700;text-transform:uppercase;line-height:1.08;margin-bottom:26px;}
+.about-h .grad-sky{background:linear-gradient(90deg,var(--sky),var(--emerald));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.about-article p{font-size:15px;line-height:1.85;color:rgba(255,255,255,.67);margin-bottom:18px;}
+.about-article strong{color:#fff;font-weight:700;}
+.pull-quote{margin:28px 0;padding:22px 26px;background:linear-gradient(135deg,rgba(14,165,233,.1),rgba(16,185,129,.08));border-left:4px solid var(--sky);border-radius:0 8px 8px 0;}
+.pull-quote p{font-family:'Lora',serif;font-size:19px!important;font-style:italic;color:#fff!important;line-height:1.55!important;margin:0!important;}
+
+/* DESTINATIONS */
+.dest-section{background:linear-gradient(160deg,#0c0f1a 0%,#0a1628 50%,#0c0f1a 100%);padding:100px 80px;}
+.sec-header{text-align:center;margin-bottom:56px;}
+.sec-tag{display:inline-block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--sky);margin-bottom:16px;}
+.sec-title{font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,58px);font-weight:700;text-transform:uppercase;line-height:1.05;margin-bottom:14px;}
+.sec-title .grad-amber{background:linear-gradient(90deg,var(--amber),var(--sundown));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sec-sub{font-size:15px;color:rgba(255,255,255,.48);max-width:500px;margin:0 auto;line-height:1.7;}
+.dest-mosaic{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:280px 280px;gap:6px;}
+.dest-mosaic .dcell:first-child{grid-row:1/3;}
+.dcell{position:relative;overflow:hidden;border-radius:6px;}
+.dcell img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;filter:saturate(1.25) contrast(1.08);}
+.dcell:hover img{transform:scale(1.1);}
+.dcell-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,15,26,.88) 0%,rgba(12,15,26,.08) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:26px;}
+.dcell-name{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+.dcell-region{font-size:12px;color:var(--amber);font-weight:600;letter-spacing:.12em;text-transform:uppercase;}
+.dcell-icon{position:absolute;top:18px;right:18px;font-size:24px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));}
+
+/* PLATFORMS */
+.platforms-section{padding:100px 80px;max-width:1440px;margin:0 auto;}
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;}
+.pcard{position:relative;border-radius:14px;padding:40px 28px;text-align:center;text-decoration:none;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:transform .35s,box-shadow .35s;}
+.pcard:hover{transform:translateY(-8px);}
+.pcard-glow{position:absolute;inset:0;border-radius:14px;opacity:.1;transition:opacity .3s;}
+.pcard:hover .pcard-glow{opacity:.22;}
+.pcard.tk{background:rgba(105,201,208,.07);}
+.pcard.tk .pcard-glow{background:radial-gradient(ellipse at top,#69C9D0,transparent);}
+.pcard.tk:hover{box-shadow:0 24px 64px rgba(105,201,208,.28);}
+.pcard.yt{background:rgba(255,0,0,.07);}
+.pcard.yt .pcard-glow{background:radial-gradient(ellipse at top,#FF0000,transparent);}
+.pcard.yt:hover{box-shadow:0 24px 64px rgba(255,0,0,.28);}
+.pcard.ig{background:rgba(225,48,108,.07);}
+.pcard.ig .pcard-glow{background:radial-gradient(ellipse at top,#E1306C,transparent);}
+.pcard.ig:hover{box-shadow:0 24px 64px rgba(225,48,108,.28);}
+.pcard.fb{background:rgba(24,119,242,.07);}
+.pcard.fb .pcard-glow{background:radial-gradient(ellipse at top,#1877F2,transparent);}
+.pcard.fb:hover{box-shadow:0 24px 64px rgba(24,119,242,.28);}
+.pcard-icon{font-size:42px;margin-bottom:18px;position:relative;z-index:1;}
+.pcard-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:6px;position:relative;z-index:1;}
+.pcard-handle{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:18px;position:relative;z-index:1;}
+.pcard-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,.52);position:relative;z-index:1;}
+
+/* SCENERY BANNER */
+.scenery-banner{position:relative;height:480px;overflow:hidden;}
+.scenery-bg{position:absolute;inset:-80px;background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=85') center/cover no-repeat;filter:saturate(1.35) contrast(1.05);}
+.scenery-cover{position:absolute;inset:0;background:linear-gradient(to right,rgba(12,15,26,.92) 0%,rgba(12,15,26,.48) 55%,rgba(12,15,26,.72) 100%),linear-gradient(to bottom,rgba(12,15,26,.4) 0%,transparent 40%,rgba(12,15,26,.4) 100%);}
+.scenery-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 80px;max-width:700px;}
+.scenery-tag{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--emerald);margin-bottom:18px;}
+.scenery-quote{font-family:'Lora',serif;font-size:clamp(22px,3vw,38px);font-style:italic;line-height:1.4;color:#fff;margin-bottom:28px;}
+.scenery-quote strong{font-family:'Oswald',sans-serif;font-style:normal;font-weight:700;color:var(--amber);}
+
+/* LEAD MAGNET */
+.lead-section{padding:110px 80px;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;}
+.lead-h{font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,62px);font-weight:700;text-transform:uppercase;line-height:1.05;margin-bottom:18px;}
+.lead-h .fire{background:linear-gradient(90deg,var(--sundown),var(--crimson));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.lead-sub{font-size:15px;line-height:1.8;color:rgba(255,255,255,.58);margin-bottom:32px;max-width:520px;}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:36px;}
+.perk{display:flex;gap:12px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;transition:all .3s;}
+.perk:hover{background:rgba(14,165,233,.08);border-color:rgba(14,165,233,.3);}
+.perk-icon{font-size:22px;flex-shrink:0;}
+.perk-txt{font-size:13px;line-height:1.55;color:rgba(255,255,255,.65);font-weight:500;}
+.form-card{background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:46px 38px;position:relative;overflow:hidden;}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--emerald),var(--sky),#7c3aed,var(--sundown));background-size:200% 100%;animation:gradFlow 4s ease infinite;}
+.form-tag{position:absolute;top:18px;right:18px;background:linear-gradient(135deg,var(--amber),var(--sundown));color:var(--ink);font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:4px 14px;border-radius:100px;}
+.form-h{font-family:'Oswald',sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+.form-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:26px;line-height:1.6;}
+.finput{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;padding:14px 18px;font-family:'Montserrat',sans-serif;font-size:14px;outline:none;margin-bottom:11px;transition:border-color .2s,background .2s;}
+.finput::placeholder{color:rgba(255,255,255,.28);}
+.finput:focus{border-color:var(--sky);background:rgba(14,165,233,.08);}
+.fsel{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:rgba(255,255,255,.7);padding:14px 18px;font-family:'Montserrat',sans-serif;font-size:14px;outline:none;margin-bottom:11px;appearance:none;cursor:pointer;}
+.fsel option{background:#1a1a2e;color:#fff;}
+.fsub{width:100%;background:linear-gradient(135deg,var(--emerald),var(--sky));color:#fff;border:none;border-radius:8px;padding:18px;font-family:'Oswald',sans-serif;font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:4px;box-shadow:0 8px 32px rgba(16,185,129,.35);}
+.fsub:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(16,185,129,.5);}
+.form-note{font-size:11px;color:rgba(255,255,255,.23);text-align:center;margin-top:12px;line-height:1.55;}
+
+/* SERVICES */
+.services{background:linear-gradient(135deg,#0a1628 0%,#0c0f1a 100%);padding:100px 80px;}
+.services-inner{max-width:1440px;margin:0 auto;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+.scard{border-radius:12px;padding:44px 34px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:all .35s;}
+.scard:nth-child(1){background:linear-gradient(145deg,rgba(14,165,233,.1),rgba(14,165,233,.02));}
+.scard:nth-child(2){background:linear-gradient(145deg,rgba(16,185,129,.1),rgba(16,185,129,.02));}
+.scard:nth-child(3){background:linear-gradient(145deg,rgba(245,158,11,.1),rgba(245,158,11,.02));}
+.scard:nth-child(1):hover{border-color:rgba(14,165,233,.4);box-shadow:0 20px 60px rgba(14,165,233,.15);}
+.scard:nth-child(2):hover{border-color:rgba(16,185,129,.4);box-shadow:0 20px 60px rgba(16,185,129,.15);}
+.scard:nth-child(3):hover{border-color:rgba(245,158,11,.4);box-shadow:0 20px 60px rgba(245,158,11,.15);}
+.scard:hover{transform:translateY(-6px);}
+.scard-num{font-family:'Oswald',sans-serif;font-size:80px;font-weight:700;position:absolute;top:10px;right:18px;color:rgba(255,255,255,.04);line-height:1;}
+.scard-icon{font-size:36px;margin-bottom:20px;}
+.scard-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#fff;margin-bottom:14px;}
+.scard-desc{font-size:14px;line-height:1.75;color:rgba(255,255,255,.53);}
+
+/* CONTACT */
+.contact{padding:110px 80px;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
+.contact-h{font-family:'Oswald',sans-serif;font-size:clamp(36px,3.5vw,56px);font-weight:700;text-transform:uppercase;line-height:1.1;margin-bottom:18px;}
+.contact-h .grad-fire{background:linear-gradient(90deg,var(--sundown),var(--crimson));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.contact-txt{font-size:15px;line-height:1.8;color:rgba(255,255,255,.56);margin-bottom:40px;}
+.citems{display:flex;flex-direction:column;gap:13px;}
+.citem{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);text-decoration:none;color:#fff;transition:all .3s;}
+.citem:hover{border-color:var(--amber);background:rgba(245,158,11,.07);transform:translateX(6px);}
+.citem-ico{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.citem-ico.wa{background:linear-gradient(135deg,#25D366,#128C7E);}
+.citem-ico.ig{background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);}
+.citem-ico.tk{background:linear-gradient(135deg,#69C9D0,#010101);}
+.citem-ico.yt{background:#FF0000;}
+.citem-lbl{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:3px;}
+.citem-val{font-size:15px;font-weight:700;}
+.contact-visual{position:relative;border-radius:16px;overflow:hidden;height:500px;}
+.contact-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2);}
+.cvis-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,15,26,.88) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:34px;}
+.cvis-name{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;text-transform:uppercase;}
+.cvis-sub{font-size:13px;color:var(--amber);font-weight:600;letter-spacing:.1em;margin-top:4px;}
+.cvis-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 24px;border-radius:8px;font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;margin-top:16px;transition:all .3s;width:fit-content;}
+.cvis-wa:hover{background:#1da851;transform:scale(1.03);}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,.6);border-top:1px solid rgba(255,255,255,.07);padding:40px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.flogo{font-family:'Oswald',sans-serif;font-size:24px;font-weight:700;color:#fff;text-decoration:none;}
+.flogo span{background:linear-gradient(90deg,var(--amber),var(--sundown));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.flinks{display:flex;gap:26px;flex-wrap:wrap;}
+.flink{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.42);text-decoration:none;transition:color .2s;}
+.flink:hover{color:var(--amber);}
+.fcopy{font-size:12px;color:rgba(255,255,255,.22);}
+
+/* ANIMATIONS */
+@keyframes fadeSlideDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .75s ease,transform .75s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  nav{padding:16px 28px;} .nav-links{display:none;}
+  .hero-content{padding:120px 36px 100px;} .hero-profile{right:20px;bottom:56px;}
+  .gallery{grid-template-columns:1fr 1fr;height:auto;grid-template-rows:220px 220px;}
+  .about{grid-template-columns:1fr;padding:80px 36px;gap:48px;} .about-main-img{height:420px;} .about-accent-img{display:none;}
+  .dest-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 240px;} .dest-mosaic .dcell:first-child{grid-row:auto;}
+  .plat-grid{grid-template-columns:1fr 1fr;}
+  .lead-section{grid-template-columns:1fr;padding:80px 36px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .contact{grid-template-columns:1fr;padding:80px 36px;}
+  .dest-section,.platforms-section,.services{padding:80px 36px;}
+  .scenery-content{padding:0 36px;}
+  footer{padding:36px 36px;flex-direction:column;text-align:center;}
+}
+@media(max-width:640px){
+  .hero-content{padding:100px 22px 80px;} .hero-profile{left:14px;right:14px;bottom:22px;}
+  .gallery{grid-template-columns:1fr;grid-template-rows:repeat(4,210px);}
+  .dest-mosaic{grid-template-columns:1fr;grid-template-rows:repeat(5,220px);}
+  .perks{grid-template-columns:1fr;}
+  .plat-grid{grid-template-columns:1fr;}
+  .lead-section,.contact,.about{padding:60px 20px;}
+  .dest-section,.platforms-section,.services{padding:60px 20px;}
+  .form-card{padding:30px 22px;}
+  footer{padding:30px 20px;}
+  .scenery-content{padding:0 22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Mile <span>on</span> Bike</a>
+  <div class="nav-links">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#destinations" class="nav-link">Destinations</a>
+    <a href="#platforms" class="nav-link">Follow</a>
+    <a href="#guide" class="nav-link">Free Guide</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">🏍️ Pakistan's Road Storyteller</div>
+    <h1 class="hero-title">
+      <span class="t1">Mile</span>
+      <span class="t2">on Bike</span>
+    </h1>
+    <p class="hero-sub">Arfat Aziz · Northern Pakistan</p>
+    <p class="hero-desc">From the mist-wrapped peaks of <strong style="color:#fff">Swat</strong> to the emerald rivers of <strong style="color:#fff">Neelam Valley</strong> — one man, one bike, and Pakistan's most breathtaking stories waiting to be told.</p>
+    <div class="hero-btns">
+      <a href="#guide" class="btn-fire">Get Free Trip Guide</a>
+      <a href="#contact" class="btn-glass">Book Consultation</a>
+    </div>
+  </div>
+  <div class="hero-profile">
+    <img src="725dfcbe9c1486775b4484f362beeecb2c76daef.png" class="profile-photo" alt="Arfat Aziz">
+    <div>
+      <div class="profile-name">Arfat Aziz</div>
+      <div class="profile-handle">@mileonbike</div>
+      <div class="profile-socials">
+        <a href="https://tiktok.com/@mile.on.bike" target="_blank" class="psoc">TikTok</a>
+        <a href="https://instagram.com/mileonbike" target="_blank" class="psoc">Insta</a>
+        <a href="https://youtube.com/@mileonbike" target="_blank" class="psoc">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="tick"><span class="tick-dot"></span>TikTok: mile.on.bike</span>
+    <span class="tick"><span class="tick-dot"></span>YouTube: mileonbike</span>
+    <span class="tick"><span class="tick-dot"></span>Instagram: mileonbike</span>
+    <span class="tick"><span class="tick-dot"></span>Facebook: mileonbike</span>
+    <span class="tick"><span class="tick-dot"></span>WhatsApp: +92 300 941 4903</span>
+    <span class="tick"><span class="tick-dot"></span>Swat · Neelam · Hunza · Skardu · Fairy Meadows</span>
+    <span class="tick"><span class="tick-dot"></span>TikTok: mile.on.bike</span>
+    <span class="tick"><span class="tick-dot"></span>YouTube: mileonbike</span>
+    <span class="tick"><span class="tick-dot"></span>Instagram: mileonbike</span>
+    <span class="tick"><span class="tick-dot"></span>Facebook: mileonbike</span>
+    <span class="tick"><span class="tick-dot"></span>WhatsApp: +92 300 941 4903</span>
+    <span class="tick"><span class="tick-dot"></span>Swat · Neelam · Hunza · Skardu · Fairy Meadows</span>
+  </div>
+</div>
+
+<!-- GALLERY STRIP -->
+<div class="gallery">
+  <div class="gcell">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=85" alt="Swat Valley">
+    <div class="gcell-overlay"><div class="gcell-label">Swat Valley</div></div>
+    <div class="loc-pill">🌿 KPK</div>
+  </div>
+  <div class="gcell">
+    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=85" alt="Neelam Valley">
+    <div class="gcell-overlay"><div class="gcell-label">Neelam Valley</div></div>
+    <div class="loc-pill">💎 AJK</div>
+  </div>
+  <div class="gcell">
+    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=85" alt="Mountain Peaks">
+    <div class="gcell-overlay"><div class="gcell-label">High Passes</div></div>
+    <div class="loc-pill">⛰️ Gilgit-Baltistan</div>
+  </div>
+  <div class="gcell">
+    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&q=85" alt="Hunza Valley">
+    <div class="gcell-overlay"><div class="gcell-label">Hunza Valley</div></div>
+    <div class="loc-pill">🏔️ GB</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-visual reveal">
+    <img src="725dfcbe9c1486775b4484f362beeecb2c76daef.png" class="about-main-img" alt="Arfat Aziz – Mile on Bike">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=85" class="about-accent-img" alt="Northern Pakistan">
+    <div class="about-badge">
+      <div class="badge-num">10K+</div>
+      <div class="badge-lbl">Global Followers</div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="chip">🏍️ The Story Behind the Ride</div>
+    <h2 class="about-h">Pakistan's<br><span class="grad-sky">Road Legend</span></h2>
+    <div class="about-article">
+      <p><strong>Arfat Aziz is not just a traveler — he is Pakistan's most authentic road narrator.</strong> Known across the globe as <em>Mile on Bike</em>, Arfat has turned two wheels and an open road into a window through which hundreds of thousands see Pakistan for the first time — and fall in love with it.</p>
+      <p>Born with an unquenchable wanderlust, Arfat has spent years documenting solo motorcycle journeys through Pakistan's Northern Areas. From the lush valleys of <strong>Swat</strong> to the breathtaking heights of <strong>Nanga Parbat</strong>, the turquoise waters of <strong>Skardu</strong> to the ancient villages of <strong>Hunza</strong> — every kilometer is captured, every story told.</p>
+      <div class="pull-quote"><p>"Every kilometer tells a story. Pakistan doesn't need to be explained — it needs to be experienced."</p></div>
+      <p>His content isn't polished tourist brochure material. It is <strong>raw, real, and deeply human</strong> — the kind of storytelling that shows a shepherd's hut at 4,000 metres, the laughter of village children on a mountain trail, and the soul-stirring silence of valleys that haven't yet appeared on mainstream travel maps.</p>
+      <p>Beyond creating content, Arfat offers personal <strong>trip planning consultations</strong> — customized itineraries, route advice, safety tips, and on-ground support for both domestic and international visitors who want to explore Pakistan authentically, safely, and unforgettably.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="dest-section" id="destinations">
+  <div class="sec-header reveal">
+    <div class="sec-tag">🗺️ Explore with Arfat</div>
+    <h2 class="sec-title">Pakistan's <span class="grad-amber">Most Beautiful</span><br>Destinations</h2>
+    <p class="sec-sub">Every frame in Arfat's videos is a real place you can visit. These are the crown jewels of Pakistan's North.</p>
+  </div>
+  <div class="dest-mosaic reveal">
+    <div class="dcell">
+      <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=85" alt="Hunza Valley">
+      <div class="dcell-overlay">
+        <div class="dcell-name">Hunza Valley</div>
+        <div class="dcell-region">Gilgit-Baltistan · 2,400m</div>
+      </div>
+      <div class="dcell-icon">🏔️</div>
+    </div>
+    <div class="dcell">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=85" alt="Swat Valley">
+      <div class="dcell-overlay">
+        <div class="dcell-name">Swat Valley</div>
+        <div class="dcell-region">KPK · Switzerland of Asia</div>
+      </div>
+      <div class="dcell-icon">🌿</div>
+    </div>
+    <div class="dcell">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&q=85" alt="Fairy Meadows">
+      <div class="dcell-overlay">
+        <div class="dcell-name">Fairy Meadows</div>
+        <div class="dcell-region">Nanga Parbat · 3,300m</div>
+      </div>
+      <div class="dcell-icon">✨</div>
+    </div>
+    <div class="dcell">
+      <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=700&q=85" alt="Neelam Valley">
+      <div class="dcell-overlay">
+        <div class="dcell-name">Neelam Valley</div>
+        <div class="dcell-region">Azad Kashmir · River Paradise</div>
+      </div>
+      <div class="dcell-icon">💎</div>
+    </div>
+    <div class="dcell">
+      <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=85" alt="Skardu">
+      <div class="dcell-overlay">
+        <div class="dcell-name">Skardu</div>
+        <div class="dcell-region">Baltistan · Gateway to K2</div>
+      </div>
+      <div class="dcell-icon">🏔️</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="platforms-section" id="platforms">
+  <div class="sec-header reveal">
+    <div class="sec-tag">📱 Join the Community</div>
+    <h2 class="sec-title">Watch. Follow. <span class="grad-amber">Explore.</span></h2>
+    <p class="sec-sub">Find Arfat's adventures live across four platforms — new roads, new valleys, new reasons to pack your bags.</p>
+  </div>
+  <div class="plat-grid reveal">
+    <a href="https://www.tiktok.com/@mile.on.bike" target="_blank" class="pcard tk">
+      <div class="pcard-glow"></div>
+      <div class="pcard-icon">🎵</div>
+      <div class="pcard-name">TikTok</div>
+      <div class="pcard-handle">@mile.on.bike</div>
+      <p class="pcard-desc">Short cinematic clips that capture Pakistan's raw beauty in seconds. Most viral content lives here.</p>
+    </a>
+    <a href="https://www.youtube.com/@mileonbike" target="_blank" class="pcard yt">
+      <div class="pcard-glow"></div>
+      <div class="pcard-icon">▶️</div>
+      <div class="pcard-name">YouTube</div>
+      <div class="pcard-handle">@mileonbike</div>
+      <p class="pcard-desc">Full-length journey vlogs with immersive route guides and storytelling direct from the mountain roads.</p>
+    </a>
+    <a href="https://www.instagram.com/mileonbike" target="_blank" class="pcard ig">
+      <div class="pcard-glow"></div>
+      <div class="pcard-icon">📸</div>
+      <div class="pcard-name">Instagram</div>
+      <div class="pcard-handle">@mileonbike</div>
+      <p class="pcard-desc">Stunning photography and Reels from every breathtaking corner of Pakistan's north.</p>
+    </a>
+    <a href="https://www.facebook.com/mileonbike" target="_blank" class="pcard fb">
+      <div class="pcard-glow"></div>
+      <div class="pcard-icon">🌐</div>
+      <div class="pcard-name">Facebook</div>
+      <div class="pcard-handle">mileonbike</div>
+      <p class="pcard-desc">Community hub — updates, gear sales, live rides and conversations with fellow adventurers.</p>
+    </a>
+  </div>
+</section>
+
+<!-- SCENERY BANNER -->
+<div class="scenery-banner">
+  <div class="scenery-bg"></div>
+  <div class="scenery-cover"></div>
+  <div class="scenery-content reveal">
+    <div class="scenery-tag">🏔️ The Call of the Mountains</div>
+    <p class="scenery-quote">"Pakistan isn't just a country on a map — it's a <strong>living, breathing masterpiece</strong> waiting to be discovered one mile at a time."</p>
+    <a href="#guide" class="btn-fire" style="width:fit-content">Plan Your Journey →</a>
+  </div>
+</div>
+
+<!-- LEAD MAGNET -->
+<section class="lead-section" id="guide">
+  <div class="reveal">
+    <div class="chip">🎁 Free Resource</div>
+    <h2 class="lead-h">Get Arfat's<br><span class="fire">Insider Pakistan</span><br>Travel Guide</h2>
+    <p class="lead-sub">Personally curated by Arfat — packed with hidden routes, seasonal tips, budget breakdowns, and everything you need to experience Pakistan's North like a true road warrior.</p>
+    <div class="perks">
+      <div class="perk"><span class="perk-icon">🗺️</span><span class="perk-txt">Top 10 hidden routes Arfat personally recommends</span></div>
+      <div class="perk"><span class="perk-icon">📅</span><span class="perk-txt">Best travel seasons for each valley & high pass</span></div>
+      <div class="perk"><span class="perk-icon">🛡️</span><span class="perk-txt">Safety tips & essential gear checklist</span></div>
+      <div class="perk"><span class="perk-icon">💰</span><span class="perk-txt">Real budget breakdown for a week up North</span></div>
+      <div class="perk"><span class="perk-icon">🏡</span><span class="perk-txt">Authentic guesthouses & local food hotspots</span></div>
+      <div class="perk"><span class="perk-icon">📞</span><span class="perk-txt">Exclusive personal consultation with Arfat</span></div>
+    </div>
+  </div>
+  <div class="form-card reveal">
+    <div class="form-tag">100% Free</div>
+    <h3 class="form-h">Send Me the Guide</h3>
+    <p class="form-sub">Join thousands of travelers already planning their Pakistan adventure with Arfat's personal guidance.</p>
+    <input class="finput" type="text" placeholder="Your Full Name">
+    <input class="finput" type="email" placeholder="Email Address">
+    <input class="finput" type="tel" placeholder="WhatsApp / Phone Number">
+    <select class="fsel">
+      <option value="" disabled selected>Where are you traveling from?</option>
+      <option>Pakistan (Domestic)</option>
+      <option>United Kingdom</option>
+      <option>United States</option>
+      <option>United Arab Emirates</option>
+      <option>Saudi Arabia</option>
+      <option>Canada</option>
+      <option>Australia</option>
+      <option>Europe</option>
+      <option>Other Country</option>
+    </select>
+    <select class="fsel">
+      <option value="" disabled selected>When are you planning to travel?</option>
+      <option>Spring 2025 (March–May)</option>
+      <option>Summer 2025 (June–August)</option>
+      <option>Autumn 2025 (Sept–Nov)</option>
+      <option>2026 or later</option>
+      <option>Just exploring for now</option>
+    </select>
+    <button class="fsub" onclick="handleForm(this)">🏍️ Get My Free Guide Now</button>
+    <p class="form-note">No spam ever. Your contact details are shared only with Arfat Aziz for personalized trip planning.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="services-inner">
+    <div class="sec-header reveal">
+      <div class="sec-tag">🧭 How Arfat Helps You</div>
+      <h2 class="sec-title">Journey Planning <span class="grad-amber">Services</span></h2>
+      <p class="sec-sub">Solo biker, family group, or international tourist — Arfat provides tailored guidance every step of the way.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <div class="scard">
+        <div class="scard-num">01</div>
+        <div class="scard-icon">🗺️</div>
+        <div class="scard-name">Custom Itinerary Planning</div>
+        <p class="scard-desc">A day-by-day route plan built around your budget, timeline, and adventure level. From weekend rides to 3-week Northern expeditions — Arfat maps it from real personal experience on these roads.</p>
+      </div>
+      <div class="scard">
+        <div class="scard-num">02</div>
+        <div class="scard-icon">🏍️</div>
+        <div class="scard-name">Guided Group Rides</div>
+        <p class="scard-desc">Join Arfat on organized group motorcycle journeys through Pakistan's most iconic mountain roads. Camaraderie, safety, stunning scenery, and unforgettable storytelling — all rolled into one epic ride.</p>
+      </div>
+      <div class="scard">
+        <div class="scard-num">03</div>
+        <div class="scard-icon">🌍</div>
+        <div class="scard-name">International Tourist Support</div>
+        <p class="scard-desc">Traveling to Pakistan from abroad? Arfat provides end-to-end advisory — visa guidance, trusted accommodation, local contacts, and on-call support throughout your entire trip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <div class="chip">📞 Get in Touch</div>
+    <h2 class="contact-h">Ready to Ride<br><span class="grad-fire">Pakistan?</span></h2>
+    <p class="contact-txt">Message Arfat directly for consultations, guided ride bookings, or collaboration. He reads every message personally and typically responds within 24 hours via WhatsApp.</p>
+    <div class="citems">
+      <a href="https://wa.me/923009414903?text=Hi%20Arfat!%20I%20found%20you%20on%20mileonbike%20and%20want%20to%20plan%20a%20trip%20to%20Northern%20Pakistan." target="_blank" class="citem">
+        <div class="citem-ico wa">📱</div>
+        <div><div class="citem-lbl">WhatsApp (Fastest Response)</div><div class="citem-val">+92 300 941 4903</div></div>
+      </a>
+      <a href="https://www.instagram.com/mileonbike" target="_blank" class="citem">
+        <div class="citem-ico ig">📸</div>
+        <div><div class="citem-lbl">Instagram DM</div><div class="citem-val">@mileonbike</div></div>
+      </a>
+      <a href="https://www.tiktok.com/@mile.on.bike" target="_blank" class="citem">
+        <div class="citem-ico tk">🎵</div>
+        <div><div class="citem-lbl">TikTok</div><div class="citem-val">@mile.on.bike</div></div>
+      </a>
+      <a href="https://www.youtube.com/@mileonbike" target="_blank" class="citem">
+        <div class="citem-ico yt">▶️</div>
+        <div><div class="citem-lbl">YouTube Channel</div><div class="citem-val">@mileonbike</div></div>
+      </a>
+    </div>
+  </div>
+  <div class="contact-visual reveal">
+    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=900&q=85" alt="Northern Pakistan">
+    <div class="cvis-overlay">
+      <div class="cvis-name">Arfat Aziz</div>
+      <div class="cvis-sub">Mile on Bike · Pakistan 🇵🇰</div>
+      <a href="https://wa.me/923009414903?text=Hi%20Arfat!%20I%20want%20to%20plan%20a%20trip%20to%20Northern%20Pakistan%20with%20your%20guidance." target="_blank" class="cvis-wa">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="flogo">Mile <span>on</span> Bike</a>
+  <div class="flinks">
+    <a href="https://www.tiktok.com/@mile.on.bike" target="_blank" class="flink">TikTok</a>
+    <a href="https://www.youtube.com/@mileonbike" target="_blank" class="flink">YouTube</a>
+    <a href="https://www.instagram.com/mileonbike" target="_blank" class="flink">Instagram</a>
+    <a href="https://www.facebook.com/mileonbike" target="_blank" class="flink">Facebook</a>
+    <a href="tel:+923009414903" class="flink">+92 300 941 4903</a>
+  </div>
+  <div class="fcopy">© 2025 Mile on Bike · Arfat Aziz · Pakistan 🇵🇰</div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Stagger children animations
+document.querySelectorAll('.plat-grid,.svc-grid,.perks,.dest-mosaic,.citems,.gallery').forEach(p => {
+  [...p.children].forEach((c, i) => { c.style.transitionDelay = `${i * 0.08}s`; });
+});
+
+// Form handler
+function handleForm(btn) {
+  btn.innerHTML = '✅ Opening WhatsApp…';
+  btn.style.background = 'linear-gradient(135deg,#25D366,#128C7E)';
+  btn.disabled = true;
+  setTimeout(() => {
+    window.open('https://wa.me/923009414903?text=Hi%20Arfat!%20I%20just%20signed%20up%20for%20your%20free%20Pakistan%20travel%20guide.%20Looking%20forward%20to%20planning%20my%20trip%20with%20you!', '_blank');
+  }, 700);
+}
+
+// Parallax scroll
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY;
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) heroBg.style.transform = `scale(1.08) translateY(${sy * 0.28}px)`;
+  const sb = document.querySelector('.scenery-banner');
+  const sbg = document.querySelector('.scenery-bg');
+  if (sb && sbg) {
+    const off = sy - sb.offsetTop;
+    sbg.style.transform = `translateY(${off * 0.18}px)`;
+  }
+});
+</script>
+</body>
+</html>
